@@ -1,0 +1,247 @@
+*{
+    font-family: 'Cabin', sans-serif;
+}
+a
+{
+    text-decoration: none;
+    color: #3e8cca;
+    font-weight: 600;
+    -webkit-transition: color 0.3s;
+    -moz-transition: color 0.3s;
+    -ms-transition: color 0.3s;
+    -o-transition: color 0.3s;
+    transition: color 0.3s;
+}
+a:hover
+{
+    color: #48b7ff;
+}
+
+.wrapper
+{
+    width:800px;
+    margin:auto;
+}
+
+.button-section
+{
+    position: relative;
+}
+
+.post-info
+{
+    margin: 10px -10px 0 -10px;
+    padding: 5px 10px;
+    border-top:1px solid #8e8e8e;
+}
+
+div.navbar, .content-class, .copyright, .post, .comments
+{
+    margin-top:10px;
+    border:1px solid #8e8e8e;
+    border-radius: 10px;
+    overflow: hidden;
+    padding:10px;
+    background: #FFFFFF;
+    position: relative;
+}
+.navbar
+{
+    height:210px
+}
+.copyright
+{
+    margin-bottom: 10px;
+}
+
+#logo
+{
+    font-size:xx-large;
+    display: block;
+}
+
+.navbar .nav
+{
+    list-style: none;
+    margin:0;
+    padding:0;
+    width: 150px;
+    top: 50%;
+    position: absolute;
+    transform: translate(0, -50%);
+}
+.navbar .nav a
+{
+    display: block;
+    padding:5px;
+    border:1px solid #dcdcdc;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    margin-top:5px;
+    background: #ffffff;
+    -webkit-transition: background 0.5s;
+    -moz-transition: background 0.5s;
+    -ms-transition: background 0.5s;
+    -o-transition: background 0.5s;
+    transition: background 0.5s;
+}
+.navbar .nav a:hover
+{
+    background: #f1f1f1;
+}
+.navbar .nav a:last-child
+{
+    margin-bottom: 5px;
+}
+.signin
+{
+    position: absolute;
+    right: 0;
+    top:50%;
+    transform: translate(0,-50%);
+    margin-right: 10px;
+    width:150px;
+}
+
+.logo
+{
+    font-family: 'Indie Flower', cursive;
+    font-size: 70px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: #3f9aff;
+    text-shadow: black 1px 1px;
+    width: 100%;
+}
+
+.singin-form p strong
+{
+    margin:5px;
+    padding: 0;
+    font-weight:400;
+    font-size:11pt;
+}
+.singin-form p
+{
+    margin: 0;
+    padding:0;
+}
+
+.singin-form input[type="text"],.singin-form input[type="password"] {
+    padding: 5px;
+    border: solid 1px #fff;
+    box-shadow: inset 1px 1px 2px 0 #707070;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+.singin-form input[type="text"]:focus,
+.singin-form input[type="text"].focus,
+.singin-form input[type="password"]:focus,
+.singin-form input[type="password"].focus {
+    box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+}
+
+.singin-form input[type="text"], .singin-form input[type="password"], .singin button, .blog
+{
+    width:100%;
+}
+.button
+{
+    margin-top:10px;
+}
+.singin.btn.btn-warning
+{
+    width:100%;
+
+}
+.signup-form
+{
+    margin-top:5px;
+}
+.button input
+{
+    display: block;
+    margin-right: auto;
+}
+.text-error
+{
+    color:red;
+}
+
+.comment-field
+{
+    border-top:1px solid #707070;
+    margin: 0px -15px;
+    padding: 15px 15px;
+}
+.comment-field p
+{
+    margin: 0;
+}
+.comment-field textarea, .newpost-area
+{
+    width: 100%;
+    min-height: 150px;
+    max-width: 100%;
+    margin: 10px 0;
+}
+.comment-field textarea, .newpost-area, .content-class input {
+    padding: 5px;
+    border: solid 1px #fff;
+    box-shadow: inset 0px 0px 4px 0 #707070;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+.comment-field textarea, .content-class input {
+    box-shadow: inset 0 0 4px 0 #c9c9c9;
+}
+.content-class input
+{
+    width: 100%;
+}
+.comment
+{
+    box-shadow: inset 0 0 4px 0 #c9c9c9;
+    border-radius: 5px;
+    background: #f9f9f9;
+    margin: 15px 0;
+    padding: 5px;
+}
+
+.comment-info
+{
+    margin: 0 -5px;
+    padding: 5px;
+    border-top: 1px solid #d0d0d0;
+}
+
+.comment:last-child
+{
+    border-bottom: none;
+}
+.comment-content
+{
+    padding: 5px 0;
+}
+
+.add-post
+{
+    margin-top: 10px;
+}
+.signup-button
+{
+    width:300px;
+    margin:auto;
+}
+.comments-border
+{
+    margin: 0 -5px;
+    padding: 5px;
+    border-bottom: 1px solid #d0d0d0;
+}

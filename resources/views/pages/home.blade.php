@@ -18,12 +18,17 @@
                             </button>
                             <input type="hidden" value="{{$post->id}}" name="post_id">
                         </form>
+                        <form action="/posts/edit/{{$post->id}}" method="get">
+                            <button  type="submit" class="btn btn-warning pull-right">
+                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                            </button>
+                        </form>
                     @endif
                     <h1>
                         <a href="/posts/{{$post->id}}">{{$post->title}}</a>
                     </h1>
                     <div class="post-content">
-                        {{$post->content}}
+                        <img src="{{$post->small_image}}" class="news-small-image"/>{{$post->content}}
                     </div>
                     <div class="post-info">
                         <strong class="login pull-left">

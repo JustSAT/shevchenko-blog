@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-    protected $fillable = [ 'title', 'content', 'user_id' ];
+    protected $fillable = [ 'title', 'content', 'user_id', 'small_image', 'big_image' ];
     public function getTestAttribute () {
         return lcfirst($this->attributes['test']);
     }

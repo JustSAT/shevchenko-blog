@@ -42,3 +42,6 @@ Route::get('/newpost', function () {
     return view('pages.new_post')
         ->with('user_id', \Session::get('user_id'));
 });
+
+Route::get('/posts/edit/{id}', 'ExampleController@editPost');
+Route::post('/updatepost/{id}', 'ExampleController@updatepost');

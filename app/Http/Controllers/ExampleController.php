@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ExampleController extends Controller
 {
@@ -80,10 +81,57 @@ class ExampleController extends Controller
 
     public function newpost(Request $request)
     {
+        $file = $request->file('poster');
+        $image_name = time()."-".md5($file->getClientOriginalName());
+        $small_image_name = "big_".$image_name;
+        $file->move('uploads', $image_name);
+        $image = Image::make(sprintf('uploads/%s', $image_name))->fit(300, 300)->save();
+        $big_path = $image->basePath();
+
+        \File::copy($big_path, 'uploads/'.$small_image_name);
+        $image = Image::make(sprintf('uploads/%s', $small_image_name))->fit(100, 100)->save();
+        $small_path = $image->basePath();
+
         $posts = \App\Post::orderBy('updated_at', 'desc')->paginate($this->peginate_pages_count);
         $users = \App\User::all();
-        Post::create(['title'=>$request->get('title'), 'content'=>$request->get('content'), 'user_id'=>\Session::get('user_id')]);
+        Post::create(['title'=>$request->get('title'), 'content'=>$request->get('content'), 'user_id'=>\Session::get('user_id'), 'small_image' => $small_path, 'big_image' => $big_path]);
         return Redirect::action('ExampleController@index');
+    }
+
+    public function editPost($id)
+    {
+        return view("pages.edit_post")
+            ->with('user_id', \Session::get('user_id'))
+            ->with('post', Post::find($id));
+    }
+
+    public function updatepost(Request $request, $id)
+    {
+        $file = $request->file('poster');
+        if($file != null) {
+            $image_name = time() . "-" . md5($file->getClientOriginalName());
+            $small_image_name = "big_" . $image_name;
+            $file->move('uploads', $image_name);
+            $image = Image::make(sprintf('uploads/%s', $image_name))->fit(300, 300)->save();
+            $big_path = $image->basePath();
+
+            \File::copy($big_path, 'uploads/' . $small_image_name);
+            $image = Image::make(sprintf('uploads/%s', $small_image_name))->fit(100, 100)->save();
+            $small_path = $image->basePath();
+            Post::updateOrCreate(
+                ['id' => $id],
+                ['title' => $request["title"], 'content' => $request["content"],
+                 'small_image' => $small_path, 'big_image' => $big_path]
+            );
+        }
+        else {
+            Post::updateOrCreate(
+                ['id' => $id],
+                ['title' => $request["title"], 'content' => $request["content"]]
+            );
+        }
+
+        return Redirect::back();
     }
 
     /**

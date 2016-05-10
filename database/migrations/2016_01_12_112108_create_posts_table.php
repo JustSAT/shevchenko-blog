@@ -17,6 +17,8 @@ class CreatePostsTable extends Migration
             $builder->string('title');
             $builder->string('content', 3000);
             $builder->integer('user_id')->unsigned();
+            $builder->string('small_image');
+            $builder->string('big_image');
 
             $builder->timestamps();
 

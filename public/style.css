@@ -33,6 +33,7 @@ a:hover
     margin: 10px -10px 0 -10px;
     padding: 5px 10px;
     border-top:1px solid #8e8e8e;
+    clear: both;
 }
 
 div.navbar, .content-class, .copyright, .post, .comments
@@ -244,4 +245,15 @@ div.navbar, .content-class, .copyright, .post, .comments
     margin: 0 -5px;
     padding: 5px;
     border-bottom: 1px solid #d0d0d0;
+}
+
+.news-small-image
+{
+    margin: 5px 5px 5px 0;
+    float: left;
+}
+.news-big-image
+{
+    margin: 5px 5px 5px 0;
+    float: left;
 }
